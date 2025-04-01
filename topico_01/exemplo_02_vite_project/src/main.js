@@ -3,6 +3,8 @@ import javascriptLogo from './assets/img/javascript.svg'
 import viteLogo from '/vite.svg'
 import { setupCounter } from './modules/counter.js'
 
+//primeiro exemplo de projeto com o vite
+
 document.querySelector('#app').innerHTML = `
   <div>
     <a href="https://vitejs.dev" target="_blank">
