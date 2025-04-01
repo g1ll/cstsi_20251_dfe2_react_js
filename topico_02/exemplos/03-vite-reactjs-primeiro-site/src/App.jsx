@@ -22,13 +22,21 @@ const users = [{
 
 function App() {
   console.info('render');
-  const profiles = [];
-  users.forEach((user) => {
-    profiles.push(<Profile key={user.name} user={user} />);
-  });
+  // const profiles = [];
+  //   <Profile key={users[0].name} user={users[0]} />,
+  //   <Profile key={users[1].name} user={users[1]} />,
+  //   <Profile key={users[2].name} user={users[2]} />
+  // ];
+  
+  // users.forEach((user) => {
+  //   profiles.push(<Profile key={user.name} user={user} />);
+  // });
+  
   return (
     <>
-      {profiles}
+      {users.map((user) =>
+          <Profile key={user.name} user={user} />
+      )}
     </>
   );
 }
