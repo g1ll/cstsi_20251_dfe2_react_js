@@ -1,29 +1,53 @@
+/* eslint-disable react/prop-types */
 import './App.css';
 
-const user = {
+const users = [{
   name: 'Hedy Lamarr',
   imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
   imageSize: 90,
   wiki: 'https://pt.wikipedia.org/wiki/Hedy_Lamarr',
-};
+},
+{
+  name: 'Ada Lovelace',
+  imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/0f/Ada_lovelace.jpg',
+  imageSize: 90,
+  wiki: 'https://pt.wikipedia.org/wiki/Ada_Lovelace',
+}];
 
 function App() {
   console.info('render');
   return (
-    <>
-      <a href={user.wiki} target="_blank">
-        <img
-          className="avatar"
-          src={user.imageUrl}
-          alt={'Photo of ' + user.name}
-          style={{
-            width: user.imageSize,
-          }}
-        />
-      </a>
-      <h1>{user.name}</h1>
-    </>
+    <Profile user={user} />
   );
+}
+
+function Profile({ user }) {
+  return <>
+    <Avatar user={user} />
+    <Title content={user.name} link={user.wiki} />
+  </>
+}
+
+function Avatar({ user }) {
+  return (
+    <a href={user.wiki}>
+      <img
+        className="avatar"
+        src={user.imageUrl}
+        alt={'Foto de ' + user.name}
+        style={{
+          width: user.imageSize,
+          height: user.imageSize,
+        }}
+      />
+    </a>
+  );
+}
+
+function Title({ content, link }) {
+  return <a href={link}>
+    <h1>{content}</h1>
+  </a>
 }
 
 export default App;
