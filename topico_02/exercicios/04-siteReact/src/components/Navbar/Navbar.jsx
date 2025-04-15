@@ -6,24 +6,20 @@ export const Navbar = () => {
   return (
     <nav className="nav_container">
       <div className="nav_logo">
-        <a href="{{route('landing')}}">
+        <a href="#">
         <img src={appLogo}  className="nav_logo_img" />
         </a>
       </div>
       <div className="nav_links">
-        {/* @auth */}
-        <a  href="{{ url('/dashboard') }}">
+        <a  href="#dashboard">
           Dashboard
         </a>
-        {/* @else */}
-        <a href="{{ route('login') }}">
+        <a href="#Log in">
           Log in
         </a>
-        {/* @if (Route::has('register')) */}
-        <a href="{{ route('register') }}">
+        <a href="#register">
           Register
         </a>
-        {/* @endif @endauth */}
       </div>
     </nav>
   );
