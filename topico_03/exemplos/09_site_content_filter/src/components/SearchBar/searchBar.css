@@ -12,10 +12,15 @@
         border-radius: 5px;
         border: 2px solid var(--secondary-color);
         font-size: 16px;
-    }
 
-    input:disabled{
-        border: 2px solid lightgray;
+        &:disabled{
+            border: 2px solid lightgray;
+        }
+
+        &:focus{
+            outline: none;
+            border: 2px solid var(--primary-color);
+        }
     }
 
 
@@ -31,6 +36,8 @@
 
         &:hover{
             background-color: var(--primary-color);
+            color: var(--secondary-color);
+            font-weight: bold;
         }
 
         &:active{
@@ -41,7 +48,6 @@
 
     &:has(input:disabled) button{
         background-color: gray;
-    } 
-
+    }
 }
 
