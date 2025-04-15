@@ -14,7 +14,7 @@ const Home = () => {
     setTimeout(()=>{      
       setIsLoaded(true)
     },1000);
-    console.log("isLoaded",isLoaded)//uma vez após a montagem, e depois ao atualizar o estado do isLoaded
+    console.log("isLoaded",isLoaded)//executa uma vez após a montagem, e depois ao atualizar o estado do isLoaded
   }, [isLoaded])//observando a dependência isLoaded
 
 
