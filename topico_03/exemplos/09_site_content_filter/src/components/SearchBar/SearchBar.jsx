@@ -1,25 +1,32 @@
 /* eslint-disable react/prop-types */
-import { useEffect } from "react"
-import { useRef } from "react"
+import { useEffect, useState, useRef  } from "react"
 import "./searchBar.css"
-// import { useState } from "react"
 
 const SearchBar = ({filterFunction, disabled}) => {
 
-//  const [searchInputState, setsearchInputState] = useState('')
- const searchInputRef = useRef(null)
+//useState
+// const [searchInputState, setsearchInputState] = useState('')
+
+//useRef
+  const searchInputRef = useRef(null)
 
  useEffect(() => {
-    filterFunction('')
-    searchInputRef.current.disabled = disabled
-    // filterFunction(searchInputState)
+    !disabled && filterFunction('')
  } , [disabled])
 
+//useState
 //  useEffect(() => { 
 //     filterFunction(searchInputState)
 //  }, [searchInputState])
 
- console.log('renderiza seachBar')
+ console.log('renderiza searchBar')
+
+ //useState
+//  console.log(searchInputState)
+
+ //useRef
+ console.log(searchInputRef.current?.value)
+
   return (
     <div className="search_bar">
         <input 
@@ -27,20 +34,29 @@ const SearchBar = ({filterFunction, disabled}) => {
             placeholder="Pesquisar produtos"
             disabled={disabled}
             
+            //useRef
             ref={searchInputRef}
             onChange={()=>{
-             console.log(searchInputRef.current.value)
-             filterFunction(searchInputRef.current.value)
+                console.log(searchInputRef.current.value)
+                // Descomentando essa linha forçaremos o re-render mesmo com useRef,
+                //  pois iremos atualizar o estado da listProducts do componente Home 
+                //  gerando também o re-render do serachBar
+                // filterFunction(searchInputRef.current.value)
             }}
             
+            //useState
             // value={searchInputState}
             // onChange={(e)=>setsearchInputState(e.target.value)}
         
             />
         <button
             onClick={() => {
-                console.log(searchInputRef.current.value)
+                //useRef
                 filterFunction(searchInputRef.current.value)
+
+                //useState
+                // filterFunction(searchInputState)
+
             }}
         > Pesquisar</button>
     </div>
