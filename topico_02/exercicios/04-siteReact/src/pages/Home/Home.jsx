@@ -1,19 +1,11 @@
 import "./home.css"
-import {useState, useEffect} from "react"
 import { Cards } from "../../components/Cards/Cards";
 import { mockedProducts } from "../../data/mockedProducts";
 
-mockedProducts.reverse()
 
 const Home = () => {
-  const [listProdutos,setListProdutos] = useState([])
 
-  useEffect(() => {
-    setTimeout(()=>{      
-      setListProdutos(mockedProducts)
-    },1000);
-  }, [])
-
+  const listProdutos = mockedProducts.reverse()
 
   return (
     <div>
