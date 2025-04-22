@@ -43,7 +43,7 @@ const SearchBar = ({filterFunction, disabled}) => {
                 // Descomentando essa linha forçaremos o re-render mesmo com useRef,
                 //  pois iremos atualizar o estado da listProducts do componente Home 
                 //  gerando também o re-render do serachBar
-                // filterFunction(searchInputRef.current.value)
+                filterFunction(searchInputRef.current.value)
             }}
             
             //useState
