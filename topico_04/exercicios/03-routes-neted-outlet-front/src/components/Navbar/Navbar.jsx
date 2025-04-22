@@ -1,22 +1,23 @@
 // import React from "react";
 import './navbar.css'
 import appLogo from './../../assets/appLogo.svg';
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
    <nav className="nav_container">
         <div className="nav_logo">
-          <a href="/">
+          <Link to="/">
           <img src={appLogo}  className="nav_logo_img" />
-          </a>
+          </Link>
         </div>
         <div className="nav_links">
-          <a href="/login">
+          <Link to="/login">
             Log in
-          </a>
-          <a href="#register">
+          </Link>
+          <Link to="register">
             Register
-          </a>
+          </Link>
         </div>
       </nav>
   );
