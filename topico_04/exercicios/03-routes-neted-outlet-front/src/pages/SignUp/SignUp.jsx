@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRef, useState } from "react";
 import "./signup.css";
 
-export default function SignUp() {
+export function SignUp() {
   const [disableButton, setDisableButton] = useState(true);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
