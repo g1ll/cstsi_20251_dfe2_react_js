@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     setTimeout(()=>{      
       setIsLoaded(true)
-    },1000);
+    },100);
     console.log("isLoaded",isLoaded)//executa uma vez após a montagem, e depois ao atualizar o estado do isLoaded
   }, [isLoaded])//observando a dependência isLoaded
 

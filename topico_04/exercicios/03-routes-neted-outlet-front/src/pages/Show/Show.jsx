@@ -18,7 +18,7 @@ const Show = () => {
             let [produto] = mockedProducts.filter(produto => produto.id === +id);
             !produto && navigate('/notfound')
             setData(produto)
-        }, 1000)
+        }, 100)
     }, []);
 
     return (
