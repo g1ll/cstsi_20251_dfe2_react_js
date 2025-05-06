@@ -35,6 +35,7 @@ useEffect(() => {
         type="text"
         name="title"
         placeholder="Título"
+        ref={inputTitle}
       />
       <br />
       <label>Texto</label>
@@ -42,6 +43,7 @@ useEffect(() => {
         type="text"
         name="text"
         placeholder="Texto"
+        ref={inputText}
       />
       <button onClick={createTodo}>
         {todo?.title? "\u270F Editar Tarefa": "+ Nova Tarefa"}
