@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg';
 import { ThemeState } from '../../App';
 import { Card } from '../../components/Card';
 import { IconLight } from '../../components/icons/IconLight';
+import IconDark from '../../components/icons/IconDark';
 
 export function Home({ count, setCount }) {
   const { theme, toggleTheme } = useContext(ThemeState);
@@ -12,17 +13,20 @@ export function Home({ count, setCount }) {
   return (
     <>
       <main className={theme}>
-      <button onClick={()=>toggleTheme()} 
-        className={`${theme==='dark'?'dark':'light'} btn-theme`}>
-           {theme==='dark'
-              ? <IconLight
-                  fill={'light'}
-                  width={50}
-                  height={50}
-                />
-              :'dark'
-            }
-      </button>
+        <button onClick={() => toggleTheme()}
+          className={`${theme === 'dark' ? 'dark' : 'light'} btn-theme`}>
+          {theme === 'dark'
+            ? <IconLight
+              fill={'light'}
+              width={48}
+              height={48}
+            />
+            : <IconDark
+              width={48}
+              height={48}
+            />
+          }
+        </button>
         <section className={theme}>
           <div>
             <a href="https://vite.dev" target="_blank">

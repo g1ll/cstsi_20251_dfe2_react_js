@@ -8,12 +8,7 @@ section {
 .btn-theme{
   position: absolute;
   top:0;
-  left: 0;
-  border:0px;
-}
-
-.btn-theme:hover {
-  outline:none;
+  left: 90%;
   border:0px;
 }
 

@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const IconLight = ({width, height,fill}) => {
-    const fillColor = fill === 'dark' ? '#000' : '#fff';
+    const fillColor = fill === 'dark' ? '#000' : '#ccc';
     return (
         <svg fill={fillColor} height={`${height}px`} width={`${width}px`} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512" xmlSpace="preserve">
