@@ -9,6 +9,7 @@ export const StateTodosList = createContext({
   newTodo: () => {},
   deleteTodo: () => {},
   setEditedTodo: () => {},
+  editTodo:()=>{},
 });
 
 export const TodosListProvider = ({ children }) => {
@@ -56,6 +57,11 @@ export const TodosListProvider = ({ children }) => {
     });
   };
 
+  const editTodo = (todo) => {
+    inputTitle.current.value = todo.title; 
+    inputText.current.value = todo.text;
+    setEditedTodo(todo);
+  };
 
   return (
     <StateTodosList.Provider
@@ -68,6 +74,7 @@ export const TodosListProvider = ({ children }) => {
         newTodo,
         deleteTodo,
         setEditedTodo,
+        editTodo,
       }}
     >
       {children}

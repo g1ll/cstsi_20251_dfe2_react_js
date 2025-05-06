@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import Todo from '../Todo/Todo';
 import { StateTodosList } from '../../context/TodosListProvider';
 
-export default function ListTodo({ editTodo }) {
-  const { listTodos } = useContext(StateTodosList);
+export default function ListTodo() {
+  const { listTodos, editTodo } = useContext(StateTodosList);
   return (
     <>
       <p>Suas Tarefas:</p>
