@@ -20,7 +20,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <header>
+            <header className='dashboard__header'>
                 <div className="logo">
                     <Link href="/">
                         <img src={appLogo} />
