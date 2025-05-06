@@ -3,14 +3,26 @@ import reactLogo from '../../assets/react.svg';
 import viteLogo from '/vite.svg';
 import { ThemeState } from '../../App';
 import { Card } from '../../components/Card';
+import { IconLight } from '../../components/icons/IconLight';
 
 export function Home({ count, setCount }) {
-  const { theme } = useContext(ThemeState);
+  const { theme, toggleTheme } = useContext(ThemeState);
   console.log(theme);
 
   return (
     <>
       <main className={theme}>
+      <button onClick={()=>toggleTheme()} 
+        className={`${theme==='dark'?'dark':'light'} btn-theme`}>
+           {theme==='dark'
+              ? <IconLight
+                  fill={'light'}
+                  width={50}
+                  height={50}
+                />
+              :'dark'
+            }
+      </button>
         <section className={theme}>
           <div>
             <a href="https://vite.dev" target="_blank">

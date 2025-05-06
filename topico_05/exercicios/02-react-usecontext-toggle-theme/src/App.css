@@ -5,6 +5,19 @@ section {
   text-align: center;
 }
 
+.btn-theme{
+  position: absolute;
+  top:0;
+  left: 0;
+  border:0px;
+}
+
+.btn-theme:hover {
+  outline:none;
+  border:0px;
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;
