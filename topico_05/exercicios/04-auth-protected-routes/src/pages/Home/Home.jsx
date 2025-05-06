@@ -13,7 +13,7 @@ const Home = () => {
     loadProdutos()
     setTimeout(()=>{    
       setIsLoaded(true)
-    },100);
+    },1000);
     console.log("isLoaded",isLoaded)//executa uma vez após a montagem, e depois ao atualizar o estado do isLoaded
   }, [isLoaded])//observando a dependência isLoaded
 

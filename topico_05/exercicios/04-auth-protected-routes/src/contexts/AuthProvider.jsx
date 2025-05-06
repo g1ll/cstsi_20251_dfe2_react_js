@@ -8,7 +8,11 @@ const AuthContext = createContext({
 })
 
 export const AuthProvider = ({children}) =>{
-    const [isLogged, _setIsLogged] = useState(JSON.parse(localStorage.getItem('USER_LOGGED')))
+    const [isLogged, _setIsLogged] = useState(
+            JSON.parse(
+                    localStorage.getItem('USER_LOGGED')
+                )
+            )
 
     const setIsLogged = (login) =>{
         _setIsLogged(login)

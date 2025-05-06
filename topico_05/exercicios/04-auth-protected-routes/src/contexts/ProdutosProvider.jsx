@@ -22,7 +22,7 @@ const ProdutosProvider = ({ children }) => {
     setTimeout(() =>setListProdutos(MOCKED_PRODUCTS), MAX_TIMEOUT);
   }
 
-  const findProdutoById = (id) => {
+  const findById = (id) => {
     let produto = MOCKED_PRODUCTS.find(produto => produto.id === +id)
     setProduto(produto)
     return produto;
@@ -45,7 +45,7 @@ const ProdutosProvider = ({ children }) => {
         setProduto,
         loadProdutos,
         filterProdutos,
-        findProdutoById,
+        findProdutoById: findById,
       }}
     >
       {children}
