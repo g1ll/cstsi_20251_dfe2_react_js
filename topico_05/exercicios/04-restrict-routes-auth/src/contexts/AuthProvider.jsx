@@ -11,12 +11,13 @@ export const AuthProvider = ({children}) =>{
     const [isLogged, _setIsLogged] = useState(JSON.parse(localStorage.getItem('USER_LOGGED')))
 
     const setIsLogged = (login) =>{
+        _setIsLogged(login)
         if(!login){
             localStorage.removeItem('USER_LOGGED');
-            _setIsLogged(false)
             return;
         }
         localStorage.setItem('USER_LOGGED',true);
+        
     }
 
     return(

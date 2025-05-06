@@ -8,12 +8,13 @@ import "./../styles/dashboard.css"
 
 const Dashboard = () => {
 
-    const { isLogged } = useAuthContext()
+    const { isLogged, setIsLogged} = useAuthContext()
     const navigate = useNavigate();
 
     if(!isLogged) return <Navigate to="/login" />;
     
     const onLogout = () => {
+        setIsLogged(false)
         navigate("/login");
     };
 
@@ -36,6 +37,7 @@ const Dashboard = () => {
             <main>
                 <aside>
                     <Link to="#dashboard">Dashboard</Link>
+                    <Link to="#dashboard">Novo Produto</Link>
                     <Link to="#users">Users</Link>
                     <Link to="#cadastro">Novo User</Link>
                 </aside>
