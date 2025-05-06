@@ -1,9 +1,11 @@
+import { useTheme } from "../../contexts/ThemeProvider";
 import "./header.css"
 
 const Header = () => {
+  const {theme} = useTheme();
   return (
-    <header className="header">
-      <div className="header_container">
+    <header className={`header ${theme}`}>
+      <div className={`header_container  ${theme}`}>
         <h1 className="w-full mt-12 mb-6 text-6xl font-bold text-center text-blue-800 shadow-white">
           Black Friday BuyTech
         </h1>
