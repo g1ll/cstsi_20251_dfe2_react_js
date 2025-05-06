@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react'
 
 export const IconLight = ({width, height,fill}) => {
@@ -7,7 +9,7 @@ export const IconLight = ({width, height,fill}) => {
             fill={fillColor}
             height={`${height}px`}
             width={`${width}px`}
-            version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+            version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 512 512" xmlSpace="preserve">
             <g>
                 <g>

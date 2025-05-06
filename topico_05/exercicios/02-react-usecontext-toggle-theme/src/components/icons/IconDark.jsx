@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 import React from 'react'
 import iconDark from '../../assets/moon-svgrepo-com.svg'
 
@@ -8,7 +10,8 @@ const IconDark = ({width, height}) => {
         height={height}
         alt="Icone de lua"
         className='icon-dark'
-     src={iconDark}/>
+        src={iconDark}
+      />
   )
 }
 
