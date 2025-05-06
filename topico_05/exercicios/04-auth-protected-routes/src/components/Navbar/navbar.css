@@ -4,7 +4,10 @@
     justify-content: space-between;
     max-height: 4rem;
     background-color: var(--secondary-color);
-    padding-top: 0.5rem
+    padding-top: 0.5rem;
+    &.dark{
+        background-color: var(--dark-secondary-color);
+    }
 }
 
 .nav_logo{
