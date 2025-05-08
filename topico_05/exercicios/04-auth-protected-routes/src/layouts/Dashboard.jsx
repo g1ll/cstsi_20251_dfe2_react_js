@@ -34,10 +34,9 @@ const Dashboard = () => {
             </header>
             <main>
                 <aside>
-                    <Link to="#dashboard">Admin</Link>
-                    <Link to="#dashboard">Novo Produto</Link>
-                    <Link to="#users">Users</Link>
-                    <Link to="#cadastro">Novo User</Link>
+                    <Link to="/dashboard">Admin</Link>
+                    <Link to="produtos">Produto</Link>
+                    <Link to="users">Users</Link>
                 </aside>
                 <section>
                     <Outlet />

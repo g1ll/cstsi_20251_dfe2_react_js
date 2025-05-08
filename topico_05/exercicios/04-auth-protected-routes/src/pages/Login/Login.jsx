@@ -20,7 +20,7 @@ export default function Login() {
     console.log({ payload });
     setIsLogged(true);
     alert("Bem Vindo!!")
-    navigate("/admin");
+    navigate("/dashboard");
   };
 
   return (
