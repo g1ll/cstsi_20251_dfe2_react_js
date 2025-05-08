@@ -10,21 +10,26 @@ import Login from "../pages/Login/Login";
 import NotFound from "../pages/NotFound/NotFound";
 import {SignUp} from "../pages/SignUp/SignUp";
 import Dashboard from "../layouts/Dashboard";
-import Admin from "../pages/Admin/Admin";
-import PriviteRoute from "../components/PriviteRoute/PriviteRoute";
+import Admin from "../pages/Admins/Admin";
+import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <>
             <Route path="/" element={<Guest />}>
-                <Route path="/" element={<Home />} />
+                <Route index element={<Home />} />
                 <Route path="/produto/:id" element={<Show />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<SignUp/>} />
                 <Route path="*" element={<NotFound />}></Route>
             </Route>
-            <Route path="/" element={<PriviteRoute><Dashboard /></PriviteRoute>}>
-                <Route path="/admin" element={<Admin/>} />
+            <Route path="/dashboard" 
+                element={
+                    <ProtectedRoute>
+                        <Dashboard />
+                    </ProtectedRoute>
+                }>
+                <Route index element={<Admin/>} />
             </Route>
         </>
     )

@@ -4,7 +4,7 @@ import React from 'react'
 import { useAuthContext } from '../../contexts/AuthProvider';
 import { Navigate } from 'react-router-dom';
 
-const PriviteRoute = ({children}) => {
+const ProtectedRoute = ({children}) => {
     const { isLogged } = useAuthContext()
 
     if (!isLogged) return <Navigate to="/login" />;
@@ -12,4 +12,4 @@ const PriviteRoute = ({children}) => {
     return children
 }
 
-export default PriviteRoute
+export default ProtectedRoute

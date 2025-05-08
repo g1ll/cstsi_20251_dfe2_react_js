@@ -20,7 +20,7 @@ const Dashboard = () => {
         <>
             <header className='dashboard__header'>
                 <div className="logo">
-                    <Link href="/">
+                    <Link to="/">
                         <img src={appLogo} />
                     </Link>
                 </div>
@@ -34,7 +34,7 @@ const Dashboard = () => {
             </header>
             <main>
                 <aside>
-                    <Link to="#dashboard">Dashboard</Link>
+                    <Link to="#dashboard">Admin</Link>
                     <Link to="#dashboard">Novo Produto</Link>
                     <Link to="#users">Users</Link>
                     <Link to="#cadastro">Novo User</Link>
