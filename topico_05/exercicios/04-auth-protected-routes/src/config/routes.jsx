@@ -11,6 +11,7 @@ import NotFound from "../pages/NotFound/NotFound";
 import {SignUp} from "../pages/SignUp/SignUp";
 import Dashboard from "../layouts/Dashboard";
 import Admin from "../pages/Admin/Admin";
+import PriviteRoute from "../components/PriviteRoute/PriviteRoute";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
                 <Route path="/register" element={<SignUp/>} />
                 <Route path="*" element={<NotFound />}></Route>
             </Route>
-            <Route path="/" element={<Dashboard />}>
+            <Route path="/" element={<PriviteRoute><Dashboard /></PriviteRoute>}>
                 <Route path="/admin" element={<Admin/>} />
             </Route>
         </>

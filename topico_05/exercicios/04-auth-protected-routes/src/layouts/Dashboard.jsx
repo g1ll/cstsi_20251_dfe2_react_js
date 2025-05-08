@@ -1,5 +1,5 @@
 
-import { Link, Navigate, Outlet, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import appLogo from './../assets/appLogo.svg';
 import logoutIcon from "../assets/logout.svg";
 import { useAuthContext } from '../contexts/AuthProvider';
@@ -8,10 +8,8 @@ import "./../styles/dashboard.css"
 
 const Dashboard = () => {
 
-    const { isLogged, setIsLogged} = useAuthContext()
+    const {setIsLogged} = useAuthContext()
     const navigate = useNavigate();
-
-    if(!isLogged) return <Navigate to="/login" />;
     
     const onLogout = () => {
         setIsLogged(false)
