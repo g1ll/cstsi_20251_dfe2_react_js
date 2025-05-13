@@ -1,0 +1,42 @@
+@use "sass:map";
+@use "sass:string";
+@use 'sass:list';
+@use 'sass:meta';
+@use '../colors.scss';
+
+$mediaPropertiesThemes: '';
+$mediaColorsThemes: '';
+
+@function append-theme($property, $color){
+  $mediaPropertiesThemes: list.append($mediaPropertiesThemes, #{$property}) !global; 
+  $mediaColorsThemes: list.append($mediaColorsThemes, #{$color}) !global;
+  @return "theme";
+}
+
+@mixin themeDefine($theme, $property, $color){
+  #{$property}: map.get($theme, $color);
+}
+
+@mixin setTheme($property, $color) {
+  $fnc:append-theme($property, $color);//executa a função append-theme
+  $dark: map.get(colors.$themes, colors.$dark-theme);
+
+  @include themeDefine($dark, $property, $color);
+  
+}
+
+@mixin makeMediaTheme(){
+  $light: map.get(colors.$themes, colors.$light-theme);
+
+  @media (prefers-color-scheme: light){
+    @each $prop in $mediaPropertiesThemes {
+      $indexProp: list.index($mediaPropertiesThemes,$prop);
+      $color: list.nth($mediaColorsThemes, $indexProp);
+
+      @include themeDefine($light, $prop, $color);
+    }
+
+    $mediaPropertiesThemes: '';
+    $mediaColorsThemes: ''; 
+  }
+}
