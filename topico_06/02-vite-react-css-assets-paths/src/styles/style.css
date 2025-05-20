@@ -1,10 +1,16 @@
 .css_logo {
   filter: grayscale();
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  h3{
+    color: #fff;
+    text-align: center;
+  }
 }
 
-.css_logo:hover {
-  transform: scale(1.2);
-}
 
 .dev {
   /*Assests na PUBLIC: URL absoluto ao caminho a partir

@@ -11,4 +11,4 @@ export const DevIllustrationStyled = styled.div`
     background-position: center;
     background-color: ${props=>props.$isThemeLight ? "lightblue" : "gray"};
     border-radius: 50%;
-  `;
+  `;props

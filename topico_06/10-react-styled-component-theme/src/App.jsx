@@ -1,33 +1,29 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import {ThemeProvider} from "styled-components"
 import Home from "./pages/Home";
-import theme from "./styles/themes/default";
-
-const getTheme = () => {
-  console.log({theme:window.matchMedia("(prefers-color-scheme: light)").matches})
-  return window.matchMedia("(prefers-color-scheme: light)").matches;
-};
-
-const detectThemeChanges = (callback) => {
-  window
-    .matchMedia("(prefers-color-scheme: light)")
-    .addEventListener("change", ({ matches }) => callback(matches));
-};
+import theme from "./styles/themes/default.styled";
+import { useContext } from "react";
+import { changeContext } from "./context/ChangeThemeProvider";
+import { detectThemeChanges } from "./utils/themeWindow";
 
 function App() {
   const [count, setCount] = useState(0);
-  const [isThemeLight, setIsThemeLight] = useState(getTheme);
+  const {isThemeLight, changeTheme} = useContext(changeContext)
 
   useEffect(() => {
-    detectThemeChanges(setIsThemeLight);
+    detectThemeChanges(changeTheme);
     console.log(isThemeLight)
   }, []);
 
+  
   return (
     <ThemeProvider theme={isThemeLight?theme.light:theme.dark}>
-        <Home count={count} setCount={setCount} isThemeLight={isThemeLight}/>
+        <Home 
+          count={count} 
+          setCount={setCount} 
+          />
     </ThemeProvider>
-    
   );
 }
 

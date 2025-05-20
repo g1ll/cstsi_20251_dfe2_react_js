@@ -4,12 +4,12 @@
 @use 'sass:meta';
 @use '../colors.scss';
 
-$mediaPropertiesThemes: '';
-$mediaColorsThemes: '';
+$listPropertiesThemes: '';
+$listColorsThemes: '';
 
 @function append-theme($property, $color){
-  $mediaPropertiesThemes: list.append($mediaPropertiesThemes, #{$property}) !global; 
-  $mediaColorsThemes: list.append($mediaColorsThemes, #{$color}) !global;
+  $listPropertiesThemes: list.append($listPropertiesThemes, #{$property}) !global; 
+  $listColorsThemes: list.append($listColorsThemes, #{$color}) !global;
   @return "theme";
 }
 
@@ -29,14 +29,14 @@ $mediaColorsThemes: '';
   $light: map.get(colors.$themes, colors.$light-theme);
 
   @media (prefers-color-scheme: light){
-    @each $prop in $mediaPropertiesThemes {
-      $indexProp: list.index($mediaPropertiesThemes,$prop);
-      $color: list.nth($mediaColorsThemes, $indexProp);
+    @each $prop in $listPropertiesThemes {
+      $indexProp: list.index($listPropertiesThemes,$prop);
+      $color: list.nth($listColorsThemes, $indexProp);
 
       @include themeDefine($light, $prop, $color);
     }
 
-    $mediaPropertiesThemes: '';
-    $mediaColorsThemes: ''; 
+    $listPropertiesThemes: '';
+    $listColorsThemes: ''; 
   }
 }

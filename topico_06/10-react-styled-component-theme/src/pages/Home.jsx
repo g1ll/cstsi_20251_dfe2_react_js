@@ -3,15 +3,22 @@ import reactLogo from "../assets/react.svg";
 import viteLogo from "/vite.svg";
 import cssLogo from "/img/css3.png";
 import DevIllustration from "../components/DevIllustration/DevIllustration";
-import { Root, HomeStyled } from "./Home.styles";
+import { Main, HomeStyled } from "./Home.styled";
 import { CSS3Logo, Logo, ReactLogo } from "../components/Logo/Logo.styled";
 import { Title } from "../components/Title/Title.styled";
 import { Button } from "../components/Button/Button.styled";
+import { ParagraphDocs } from "../components/ParagraphDocs/ParagraphDocs.styled";
+import { useContext } from "react";
+import { changeContext } from "../context/ChangeThemeProvider";
 
-const Home = ({ count, setCount, isThemeLight }) => {
+
+const Home = ({ count, setCount }) => {
+  
+ const {isThemeLight, changeTheme} = useContext(changeContext)
+  
   return (
     <HomeStyled>
-      <Root>
+      <Main>
         <div>
           <a
             href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"
@@ -31,15 +38,18 @@ const Home = ({ count, setCount, isThemeLight }) => {
           <Button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </Button>
+          <Button onClick={changeTheme}>
+            Trocar Tema para {isThemeLight?'Dark':'Light'}
+          </Button>
           <p>
             Edit <code>src/App.jsx</code> and save to test HMR
           </p>
         </div>
-        <p className="read-the-docs">
+        <ParagraphDocs>
           Click on the Vite and React logos to learn more
-        </p>
+        </ParagraphDocs>  
         <DevIllustration />
-      </Root>
+      </Main>
     </HomeStyled>
   );
 };

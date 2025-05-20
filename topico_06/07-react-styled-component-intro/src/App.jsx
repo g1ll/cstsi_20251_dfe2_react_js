@@ -27,6 +27,10 @@ function App() {
     detectThemeChanges(setIsThemeLight);
   }, []);
 
+  const changeTheme=()=>{
+      setIsThemeLight(!isThemeLight)
+  }
+
   return (
     <>
       <div>
@@ -48,7 +52,7 @@ function App() {
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </Button>
-        <Button>Teste </Button>
+        <Button onClick={changeTheme}>Trocar tema </Button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>

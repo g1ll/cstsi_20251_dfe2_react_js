@@ -7,9 +7,9 @@ export default function DevIllustration({isThemeLight}){
      <div
         style={{
           width: "50vw",
-          aspectRatio: 1,
+          aspectRatio: 1,//aspect-ratio => aspectRatio
           backgroundImage: "url('/img/frontdev.png')",
-          // backgroundImage: `url('${frontImg}')`,
+          // baccd kgroundImage: `url('${frontImg}')`,
           backgroundSize: "85%",
           backgroundRepeat:'no-repeat',
           backgroundPosition: 'center',
