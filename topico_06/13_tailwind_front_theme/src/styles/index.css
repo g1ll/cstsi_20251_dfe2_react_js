@@ -1,11 +1,12 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  --bg-color-dark:#242424;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: var(--bg-color-dark);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,6 +29,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  /*Assests na SRC: URL realtivo ao caminho a partir 
+    do local do arquivo css (styles/index.css) para o local da imagem (../assets/img/)*/
+  background-image: url('../assets/imgs/front-end-wallpapers.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: var(--bg-color-dark);
+
 }
 
 h1 {
@@ -58,6 +66,9 @@ button:focus-visible {
   :root {
     color: #213547;
     background-color: #ffffff;
+  }
+  body{
+    background-color: #dceded;
   }
   a:hover {
     color: #747bff;

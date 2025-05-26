@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { createContext, useState,useEffect } from 'react'
 import { mockDataProducts } from '../mocks/mockData';
+mockDataProducts.reverse()
 
 export const ProdutosContext = createContext(undefined)
 
