@@ -4,24 +4,25 @@ import viteLogo from "/vite.svg";
 import cssLogo from "/img/css3.png";
 import "./styles/style.css";
 import "./App.css";
+// import backdroungDevImage from "./assets/imgs/front-end-wallpapers.jpg"
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <div>
+      <div className="flex flex-row h-35">
         <a
           href="https://developer.mozilla.org/pt-BR/docs/Web/CSS"
           target="_blank"
         >
-          <img src={cssLogo} className="logo css_logo" alt="CSS logo" />
+          <img src={cssLogo} className="h-[8em] logo css_logo" alt="CSS logo" />
         </a>
         <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
+          <img src={viteLogo} className="h-[8em] logo" alt="Vite logo" />
         </a>
         <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
+          <img src={reactLogo} className="h-[8em] logo react" alt="React logo" />
         </a>
       </div>
       <h1>Vite + React</h1>
@@ -36,7 +37,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div className="dev"></div>
+      <div className="bg-blue-100 dark:bg-gray-300 aspect-1/1 w-[60vw] rounded-full bg-[url(/img/frontdev.png)] bg-cover"></div>
     </>
   );
 }
