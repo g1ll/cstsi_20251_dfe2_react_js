@@ -1,6 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@tailwind theme;
+
+@theme {
+  --breakpoint-3xl: '1960px';
+  --breakpoint-4xl: '2200px';
+}
+
 
 :root {
   margin: 0;

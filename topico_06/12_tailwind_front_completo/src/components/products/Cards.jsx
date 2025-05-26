@@ -2,7 +2,7 @@
 
 export const Cards = ({ item }) => {
   return (
-    <div className="mx-auto aspect-[3/4] w-11/12 rounded-lg border-2 border-blue-700 bg-green-400 shadow-md shadow-green-700 sm:w-full md:h-80 md:overflow-hidden">
+    <div className="mx-auto aspect-[3/4] w-11/12 h-130 rounded-lg border-2 border-blue-700 bg-green-400 shadow-md shadow-green-700 sm:w-full sm:h-120 md:h-80 md:overflow-hidden">
       <a href="#">
         <div className="w-full py-3 pt-[10px]">
           <h3 className="mb-3 text-center font-bold">{item.nome}</h3>
