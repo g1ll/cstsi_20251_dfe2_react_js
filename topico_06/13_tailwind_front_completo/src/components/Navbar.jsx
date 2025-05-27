@@ -1,5 +1,5 @@
 // import React from "react";
-import appLogo from './../assets/newAppLogo.svg';
+import appLogo from '/img/newAppLogoGreenShades.svg?url';
 
 export const Navbar = () => {
   return (
