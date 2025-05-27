@@ -37,7 +37,17 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <div className="bg-blue-100 dark:bg-gray-300 aspect-1/1 w-[60vw] rounded-full bg-[url(/img/frontdev.png)] bg-cover"></div>
+      <div className="
+        bg-blue-200
+        dark:bg-gray-300
+        aspect-1/1 
+        w-[50vw] 
+        rounded-full
+        bg-[url(/img/frontdev.png)]
+        bg-cover
+        hover:bg-blue-300
+        dark:hover:bg-gray-400"
+        ></div>
     </>
   );
 }

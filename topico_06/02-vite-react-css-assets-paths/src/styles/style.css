@@ -5,7 +5,7 @@
     transform: scale(1.2);
   }
 
-  h3{
+  h3 {
     color: #fff;
     text-align: center;
   }
@@ -19,14 +19,20 @@
   background-size: cover;
   width: 50vw;
   aspect-ratio: 1;
-  background-size: cover;
   background-color: #a9a7a7;
   border-radius: 50%;
+
+  & hover {
+    background-color: #555555;
+  }
 }
 
 @media (prefers-color-scheme: light) {
   .dev {
-    
     background-color: lightblue;
+
+    & hover {
+      background-color: blue;
+    }
   }
 }
