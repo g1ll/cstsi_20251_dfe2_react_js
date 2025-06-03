@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { render } from 'vitest-browser-react'
+import React from 'react'
+import { mount } from 'cypress/react'
 import { describe, test, expect } from "vitest";
 import RouterStub from "../router/RouterStub";
 import { NavLinks } from "../../src/components/NavLinks/NavLinks";
