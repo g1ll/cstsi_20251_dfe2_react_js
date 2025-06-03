@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { mount } from 'cypress/react'
-import RouterStub from "../router/RouterStub";
-import { NavLinks } from "../../src/components/NavLinks/NavLinks";
 import "../../src/styles/main.css"
+import RouterStub from './RouterStub';
+import { NavLinks } from '../../src/components/NavLinks/NavLinks';
 
 describe("NavLink Teste", () => {
     test("Teste dos links da barra superior de navegação!", async () => {
