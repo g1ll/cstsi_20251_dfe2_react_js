@@ -6,12 +6,11 @@ const PASSWORD=import.meta.env.VITE_ADMIN_PASSWORD
 const clearAuthStorages = () => {
     console.log('clear')
     console.log('CURRENT_USER')
+    localStorage.removeItem('CURRENT_USER')
 }
 
 const AuthContext = createContext({
     user: {},
-    token: null,
-    setUser: () => { },
     logIn: () => { },
     logOut: () => { }
 })

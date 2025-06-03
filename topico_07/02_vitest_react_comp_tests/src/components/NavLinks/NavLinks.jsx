@@ -8,7 +8,7 @@ export const NavLinks = ({ user }) => {
     {user?.name ? (
       <><Link
         to="#dashboard"
-        className="mt-4 text-sm text-gray-400 underline hover:text-gray-100"
+        className="mt-4 mx-1 text-sm text-gray-400 underline hover:text-gray-100"
       >
         Dashboard
       </Link>

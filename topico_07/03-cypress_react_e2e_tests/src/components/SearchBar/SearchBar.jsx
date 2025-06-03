@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 import "./searchBar.css"
 
-const SearchBar = ({ filterFunction, disabled }) => {
+export const SearchBar = ({ filterFunction, disabled }) => {
 
     //useState
     // const [searchInputState, setsearchInputState] = useState('')
@@ -67,5 +67,3 @@ const SearchBar = ({ filterFunction, disabled }) => {
         </form>
     )
 }
-
-export {SearchBar}
