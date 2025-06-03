@@ -25,20 +25,22 @@ describe("SearchBar Testes", () => {
 
     test("Teste com Provider de Produtos!", async () => {
 
-        const { getByText, getByPlaceholder, getByTestId } = render(
+        const { getByText, getByPlaceholder } = render(
             <ProdutosProvider>
                 <WrappedSearchBar />
-            </ProdutosProvider>)
+            </ProdutosProvider>
+        )
 
         await expect.element(getByText('Pesquisar')).toBeInTheDocument()
         await expect.element(getByPlaceholder('Pesquisar produtos')).toBeInTheDocument()
 
         // const searchComponent = getByTestId("searchbar");
+
         // await searchComponent.click()
         // await userEvent.click(searchComponent);
 
-        // expect(consoleSpy).toHaveBeenCalledWith("Button clicked in browser!");
-        // consoleSpy.mockRestore();
+        // // expect(consoleSpy).toHaveBeenCalledWith("Button clicked in browser!");
+        // // consoleSpy.mockRestore();
 
     });
 });

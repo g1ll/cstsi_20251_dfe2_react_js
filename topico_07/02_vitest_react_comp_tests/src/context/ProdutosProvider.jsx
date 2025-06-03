@@ -32,6 +32,7 @@ const ProdutosProvider = ({ children }) => {
 
   const filterProdutos = (searchTerm) => {
     console.log("Filtrando Produtos do Contexto!!!")
+    console.log(searchTerm)
     const filteredProducts = data?.filter((product) => {
       return product.nome.toLowerCase().includes(searchTerm.toLowerCase())
     })
