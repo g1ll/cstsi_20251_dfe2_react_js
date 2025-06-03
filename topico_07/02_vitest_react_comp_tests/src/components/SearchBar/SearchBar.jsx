@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react"
 import "./searchBar.css"
 
-const SearchBar = ({ filterFunction, disabled }) => {
+export const SearchBar = ({ filterFunction, disabled }) => {
 
     //useState
     // const [searchInputState, setsearchInputState] = useState('')
@@ -18,13 +18,13 @@ const SearchBar = ({ filterFunction, disabled }) => {
     //     filterFunction(searchInputState)
     //  }, [searchInputState])
 
-    console.log('renderiza searchBar')
+    // console.log('renderiza searchBar')
 
     //useState
     //  console.log(searchInputState)
 
     //useRef
-    console.log(searchInputRef.current?.value)
+    // console.log(searchInputRef.current?.value)
 
     return (
         <form >
@@ -67,5 +67,3 @@ const SearchBar = ({ filterFunction, disabled }) => {
         </form>
     )
 }
-
-export {SearchBar}
