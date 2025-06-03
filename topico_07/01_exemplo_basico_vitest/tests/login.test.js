@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { fazerLogin } from '../login';
+import { fazerLogin } from '../src/login';
 
 describe("Teste de login com Vitest", () => {
   test("Deve logar para credenciais válidas", () => {
