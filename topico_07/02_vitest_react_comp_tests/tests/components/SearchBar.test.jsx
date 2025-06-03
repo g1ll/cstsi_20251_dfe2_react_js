@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { render } from 'vitest-browser-react'
 // import { userEvent } from '@vitest/browser/context'
 import { describe, test, expect } from "vitest";
-import { SearchBar } from "../src/components/SearchBar/SearchBar";
-import ProdutosProvider, { ProdutosContext } from "../src/context/ProdutosProvider";
+import { SearchBar } from "../../src/components/SearchBar/SearchBar";
+import ProdutosProvider, { ProdutosContext } from "../../src/context/ProdutosProvider";
 
 
 describe("SearchBar Testes", () => {
