@@ -13,9 +13,9 @@ describe("NavLink Teste", () => {
 
     });
 
-    // test("Teste com usuário!", async () => {
-    //     const user = {name:"User Test"}
-    //     const { getByText } = render(<RouterStub component={<NavLinks user={user}/>}/>)
-    //     await expect.element(getByText('Dashboard')).toBeInTheDocument()
-    // });
+    it("Teste com usuário!", async () => {
+        const user = {name:"User Test"}
+        cy.mount(<RouterStub component={<NavLinks />} />)
+        cy.get('a').contains("Dashboard")
+    });
 });
