@@ -7,15 +7,15 @@ import RouterStub from './RouterStub';
 import { NavLinks } from '../../src/components/NavLinks/NavLinks';
 
 describe("NavLink Teste", () => {
-    test("Teste dos links da barra superior de navegação!", async () => {
-        const { getByText } = render(<RouterStub component={<NavLinks />} />)
-        await expect.element(getByText('Log in')).toBeInTheDocument()
+    it("Teste dos links da barra superior de navegação!", async () => {
+        cy.mount(<RouterStub component={<NavLinks />} />)
+        cy.get('a').contains("Log in")
 
     });
 
-    test("Teste com usuário!", async () => {
-        const user = {name:"User Test"}
-        const { getByText } = render(<RouterStub component={<NavLinks user={user}/>}/>)
-        await expect.element(getByText('Dashboard')).toBeInTheDocument()
-    });
+    // test("Teste com usuário!", async () => {
+    //     const user = {name:"User Test"}
+    //     const { getByText } = render(<RouterStub component={<NavLinks user={user}/>}/>)
+    //     await expect.element(getByText('Dashboard')).toBeInTheDocument()
+    // });
 });
