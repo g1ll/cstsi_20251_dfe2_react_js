@@ -1,11 +1,11 @@
 /* eslint-disable no-undef */
 /// <reference types="cypress" />
 
-  const URL = 'http://localhost:5174/';
-  const DELAY = 2000;
-  let busca = 'Test';
-  let regexBusca = /test/i
-  
+const URL = 'http://localhost:5173/';
+const DELAY = 2000;
+let busca = 'Test';
+let regexBusca = /test/i
+
 
 context('Actions', () => {
   // it("Aguarda 2s para iniciar os testes: ", ()=> cy.wait(2000)); 
@@ -41,22 +41,22 @@ context('Actions', () => {
     cy.get('main>div>div>div>div>a')
   });
 
- 
+
 
   it('Digitando no campos de busca "Est" e verificando o resultado após limpa campos de busca', () => {
     // https://on.cypress.io/type
     busca = 'Est';
     regexBusca = /est/i
-   
+
     cy.get('input[type=search]').type(busca)
     cy.get('input[type=search]').should('have.value', busca)
     cy.get('form button').click()
     cy.get('main>div>div>div>div>a')
       .find('div>h3')
       .invoke('text')
-      .should($texts=>{
-            const include = $texts.toLocaleLowerCase().includes(busca.toLocaleLowerCase())
-            expect(include).to.be.true
+      .should($texts => {
+        const include = $texts.toLocaleLowerCase().includes(busca.toLocaleLowerCase())
+        expect(include).to.be.true
       })
 
     cy.wait(2000);
@@ -74,8 +74,13 @@ context('Actions', () => {
       });
   });
 
-  describe('Verifica o resultado da pesquisa e acessa o item pesquisado, após volta ao início!', () => {
-    it(`Filtra pelo produto ${busca}`, () => {
+  describe('Navegação em resultado do filtro!', () => {
+    busca = 'alias'
+    regexBusca = /alias/i
+    it(`Filtra pelo produto ${busca}, acessao link e volta`, () => {
+
+      busca = 'alias'
+      regexBusca = /alias/i
       cy.get('input[type=search]').type(busca)
       cy.get('input[type=search]').should('have.value', busca)
       cy.wait(1000);
@@ -86,7 +91,7 @@ context('Actions', () => {
         .should('match', regexBusca)
       cy.wait(2000);
       cy.get('main>div>div>div>div>a')
-      .first().click()
+        .first().click()
       cy.wait(2000);
       cy.get('main>div>div>div>a')
         .find('div>h3')
@@ -94,7 +99,7 @@ context('Actions', () => {
         .should('match', regexBusca)
       cy.wait(1000);
       cy.get('main>div>a')
-        .should('have.text','Voltar')
+        .should('have.text', 'Voltar')
         .click()
     });
   });
