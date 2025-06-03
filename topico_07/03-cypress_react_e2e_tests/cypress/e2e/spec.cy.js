@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-describe('template spec', () => {
-  it('passes', () => {
+describe('Página inicial!', () => {
+  it('Consegue acessar a página inicial', () => {
     cy.visit('http://localhost:5174/')
   })
 })
