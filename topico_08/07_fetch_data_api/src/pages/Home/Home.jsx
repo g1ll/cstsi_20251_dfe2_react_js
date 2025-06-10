@@ -30,10 +30,11 @@ const Home = () => {
       try {
         const response = await fetch(`${API_URL}/produtos`);
         const data = await response.json();
-        setListProdutos(data.data);
+        console.log(data)
+        setListProdutos(data);
       } catch (error) {
         console.error(error)
-      }
+      }   
     })();
   }, [])
 
@@ -42,7 +43,7 @@ const Home = () => {
     <div>
       <div className="home">
         <div className="products_grid_container">
-          {!listProdutos.length
+          {!listProdutos?.length
             ? <p>Carregando...</p>
             :listProdutos.map((product, key) => (
               <Cards key={`card${key}`} item={product} />
