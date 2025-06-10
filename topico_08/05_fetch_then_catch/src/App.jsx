@@ -37,13 +37,17 @@ function App() {
     if(inputCity.current.value=='') return
     const city = inputCity.current.value;
     fetch(`${api_url}/current.json?key=${apiKey}&q=${city}`)
-      .then(response => response.json())
+      .then(response => {
+        if(response.status===200)
+            return response.json()
+        else throw new Error("Erro na API!!")
+      })
       .then(data => {
         console.log(`Temperatura para ${city}:`, data);
         setTempInfo(data)
 
       })
-      .catch(error => console.log('Error:', error));
+      .catch(error => console.log('Error:', error.message));
   }
 
   const consultaTempLocal = () => {
