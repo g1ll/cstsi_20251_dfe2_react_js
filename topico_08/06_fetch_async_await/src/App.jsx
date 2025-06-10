@@ -41,11 +41,13 @@ function App() {
       if (inputCity.current.value == "") return;
       const city = inputCity.current.value;
       const response = await fetch(`${api_url}/current.json?key=${apiKey}&q=${city}`);
+      if(response.status!==200)
+        throw new Error("Erro na API!!")
       const data = await response.json();
       console.log(`Temperatura para ${city}:`, data);
       setTempInfo(data)
     } catch (error) {
-      console.log("Error:", error);
+      console.error(error.message);
     }
   };
 
