@@ -10,12 +10,17 @@ function App() {
     }, 500);
   };
 
-  const funcPromise = (text) =>
-    new Promise((resolve) => {
+  const funcPromise = (text,time=null,isRejected=false) =>
+    new Promise((resolve, reject) => {
+      isRejected && setTimeout(
+        ()=>{
+          reject('Erro');
+      },time?time:0);
+
       setTimeout(() => {
         console.log(text);
         resolve(funcPromise);
-      }, 500);
+      }, time?time:500);
     });
 
   return (
@@ -34,7 +39,7 @@ function App() {
           onClick={() => {
             funcCallback("Hello", () => {
               funcCallback("World", () => {
-                funcCallback("CallBack",()=>{
+                funcCallback("CallBack", () => {
                   funcCallback("Hell");
                 });
               });
@@ -44,55 +49,69 @@ function App() {
           CallBack Hell
         </button>&nbsp;&nbsp;
         <button
-          onClick={() =>{
+          onClick={() => {
             funcPromise("Hello")
               .then(fun => fun("World"))
               .then(fun => fun("Promise"))
               .then(fun => fun("Chaning"))
             console.log("Exemplo Promise Chaning");
-            }
+          }
           }
         >
           Promise Chaning
         </button>&nbsp;&nbsp;
         <button
-          onClick={async () =>{
+          onClick={async () => {
               await funcPromise("Hello");
               await funcPromise("World");
               await funcPromise("Async");
-              await funcPromise("Await"); 
+              await funcPromise("Await");
               console.log("Exemplo Async/Await");
+            }
           }
-        }
         >
           Promise Async/Await
         </button>&nbsp;&nbsp;
-        <button
-          onClick={async () =>{
-              await Promise.all([ //resolve todas as promises em paralelo
-                funcPromise("Hello"),
-                funcPromise("World"),
-                funcPromise("Promise"),
-                funcPromise("All")
-              ]);
-              console.log("Exemplo Promise All");
+         <button
+          onClick={() => {
+            (async () => {
+              await funcPromise("Hello");
+              await funcPromise("World");
+              await funcPromise("Async");
+              await funcPromise("Await");
+            })();//IIFE - Immediately Invoked Function Expression
+            console.log("Exemplo Async/Await IIFE");
           }
-        }
+          }
+        >
+          Promise Async/Await IIFE
+        </button>&nbsp;&nbsp;
+        <button
+          onClick={async () => {
+            await Promise.all([ //resolve todas as promises em paralelo
+              funcPromise("Hello"),
+              funcPromise("World"),
+              funcPromise("Promise",2000),
+              funcPromise("All")
+            ]);
+            console.log("Exemplo Promise All");
+          }
+          }
         >
           Promise All
-          </button>&nbsp;&nbsp;
+        </button>&nbsp;&nbsp;
         <button
-          onClick={async () =>{
-              await Promise.allSettled([ //Array de promises
-                funcPromise("Hello"),
-                funcPromise("World"),
-                funcPromise("Promise"),
-                funcPromise("AllSettled")
-              ]).then(results=>results.forEach(//itera o resultado de cada promise
-                result=>console.log(result.status)
-              ));
+          onClick={async () => {
+            await Promise.allSettled([ //Array de promises
+              funcPromise("Hello"),
+              funcPromise("World"),
+              funcPromise("Promise",100,true),
+              funcPromise("AllSettled")
+            ]).then(results => results.forEach(//itera o resultado de cada promise
+              result => console.log(result.status)
+            ));
           }
-        }
+          }
         >
           Promise AllSettled
         </button>
