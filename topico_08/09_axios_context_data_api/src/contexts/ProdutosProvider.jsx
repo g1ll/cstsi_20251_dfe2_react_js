@@ -18,16 +18,19 @@ const ProdutosProvider = ({ children }) => {
   const loadProdutos = async (id = null) => {
     const url = id ? `/produtos/${id}` : `/produtos`;
     try {
-      const {data} = await axiosClient.get(url);
+      const response = await axiosClient.get(url);
+      console.log({response})
+      const {data} = response;
       const _data = data?.data;
-      console.log({_data});
-
-      if (!_data) 
+      console.log(_data);
+      if (!_data)
         throw new Error("Erro ao carregar produtos");
 
       // Array.isArray(_data) && _data.reverse();
       setData(_data);
     } catch (error) {
+      if(error.status === 500)
+          console.error("Erro ao comunicar com a API!!!")
       console.log(error);
     }
   };
