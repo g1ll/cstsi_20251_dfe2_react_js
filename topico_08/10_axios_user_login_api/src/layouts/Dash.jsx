@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 
@@ -9,11 +10,16 @@ import logoutIcon from "../assets/logout.svg";
 import { Navigate, Outlet, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthProvider";
 
-export default function Default() {
-  const { token, user } = useAuthContext();
-  const navigate = useNavigate();
+export function Private({children}){
+  const { token } = useAuthContext();
+  console.log({token})
   if (!token) return <Navigate to="/login" />;
-   
+  return children;
+}
+
+export default function Dash() {
+  const { user } = useAuthContext();
+ const navigate = useNavigate();
   // if (!token) navigate("/login");
 
   // useEffect(() => {
