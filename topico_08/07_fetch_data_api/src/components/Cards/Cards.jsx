@@ -5,7 +5,7 @@ export const Cards = ({ item }) => {
   
   return (
     <div className="card_container">
-      <a href="{{ route('single', $produto->id) }}">
+      <a href="#">
         <div className="card_main">
           <h3 className="card_name">{item.nome}</h3>
           <div className="card_thumb">
