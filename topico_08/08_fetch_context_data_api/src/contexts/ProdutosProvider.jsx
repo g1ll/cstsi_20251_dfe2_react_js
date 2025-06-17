@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 export const ProdutosContext = createContext({
-  data: null,
+  data: [],
+  isLoaded: false,
   loadProdutos: () => {},
+  setIsLoaded:()=>{},
   setData: () => {},
   editProduto: () => {},
   deleteProduto: () => {},
@@ -14,6 +16,7 @@ export const ProdutosContext = createContext({
 
 const ProdutosProvider = ({ children }) => {
   const [data, setData] = useState(null);
+  const [isLoaded, setIsLoaded] = useState(false)
 
   const loadProdutos = async (id = null) => {
     const url = id ? `${API_URL}/produtos/${id}` : `${API_URL}/produtos`;
@@ -23,6 +26,7 @@ const ProdutosProvider = ({ children }) => {
         throw new Error("Erro ao carregar produtos!!");
 
       const {data} = await response.json();
+      console.log({data})
       // Array.isArray(data) && data.reverse();
       setData(data);
     } catch (error) {
@@ -42,10 +46,17 @@ const ProdutosProvider = ({ children }) => {
     return true; //TODO
   };
 
+  useEffect(()=>{
+    data && setIsLoaded(true)
+    return ()=>setIsLoaded(false)
+  },[data])
+
   return (
     <ProdutosContext.Provider
       value={{
         data,
+        isLoaded,
+        setIsLoaded,
         loadProdutos,
         setData,
         editProduto,
