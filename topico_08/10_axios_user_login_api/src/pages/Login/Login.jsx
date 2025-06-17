@@ -3,9 +3,13 @@ import { useAuthContext } from "../../contexts/AuthProvider";
 import { useRef } from "react";
 import axiosClient from "../../utils/axios-client";
 import { LoginStyled } from "./login.styled";
+import { useState } from "react";
 
 export default function Login() {
   const { setToken, setUser } = useAuthContext();
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
+
   const emailRef = useRef();
   const passwordRef = useRef();
   const navigate = useNavigate();
@@ -22,6 +26,7 @@ export default function Login() {
         await axiosClient.post("/login", payload);
       const { data } = response;
       alert("Usuário logado");
+      console.log({data})
       setToken(data.token);
       setUser(data.user);
       localStorage.setItem(
@@ -30,7 +35,10 @@ export default function Login() {
       );
       navigate("/dashboard");
     } catch (error) {
+      console.dir({error});
       console.error(error.response.data.message);
+      setIsError(true)
+      setErrorMessage(error.response.data.message)
     }
   };
 
@@ -46,6 +54,8 @@ export default function Login() {
             Not Registered? <Link to="/signup">Create an account</Link>
           </p> */}
         </form>
+        {isError && <p style={{color:'red'}}>Erro ao logar!!!</p>}
+        {isError && <p style={{color:'red'}}>{errorMessage}</p>}
       </div>
     </LoginStyled>
   );

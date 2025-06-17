@@ -6,7 +6,7 @@ export const LoginStyled = styled.div`
   justify-content: center;
   align-items: center;
 
-  form {
+  .form {
     width: 360px;
     position: relative;
     z-index: 1;
