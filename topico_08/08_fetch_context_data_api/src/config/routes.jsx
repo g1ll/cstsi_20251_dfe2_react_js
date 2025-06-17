@@ -6,7 +6,7 @@ import Show from '../pages/Show/Show';
 const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Guest/>}>
-        <Route path="/" element={<Home />} />
+        <Route index element={<Home />} />
         <Route path="/produto/:id" element={<Show />} />
       </Route>
     )
