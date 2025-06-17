@@ -54,6 +54,8 @@ function App() {
               .then(fun => fun("World"))
               .then(fun => fun("Promise"))
               .then(fun => fun("Chaning"))
+              .catch(erro=>console.error(erro))
+              .finally(()=>console.log('Sempre executa!!'))
             console.log("Exemplo Promise Chaning");
           }
           }
