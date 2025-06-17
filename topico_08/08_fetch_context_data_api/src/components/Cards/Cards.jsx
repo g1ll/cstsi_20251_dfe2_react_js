@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
+import { Link } from "react-router-dom";
 import "./cards.css"
 export const Cards = ({ item }) => {
   const awsBucket = "https://v3ll3s3laravelsdisk.s3.sa-east-1.amazonaws.com";
   
   return (
     <div className="card_container">
-      <a href={`\\produto\\${item.id}`}>
+      <Link to={`produto/${item.id}`}>
         <div className="card_main">
           <h3 className="card_name">{item.nome}</h3>
           <div className="card_thumb">
@@ -18,7 +19,7 @@ export const Cards = ({ item }) => {
             {item.descricao}
           </p>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
