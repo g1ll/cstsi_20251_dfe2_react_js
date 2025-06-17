@@ -2,14 +2,15 @@ import "./show.css"
 import { useContext, useEffect } from "react"
 import { Cards } from "../../components/Cards/Cards";
 import { ProdutosContext } from "../../contexts/ProdutosProvider";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Show = () => {
-    const { data, loadProdutos } = useContext(ProdutosContext)
+    const { data, loadProdutos, setIsLoaded } = useContext(ProdutosContext)
     const { id } = useParams()
 
     useEffect(() => {
        loadProdutos(id)
+       return ()=>setIsLoaded(false)
     }, [])
 
     return (
@@ -21,7 +22,7 @@ const Show = () => {
                         : <Cards key={`card${id}`} item={data} />
                     }
                 </div>
-                <a href="/">Voltar</a>
+                <Link to="/">Voltar</Link>
             </div>
         </div>
     );
