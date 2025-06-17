@@ -26,7 +26,7 @@ export default function Login() {
       alert("Usuário logado");
       setToken(data.token);
       setUser(data.user);
-      // navigate("/dashboard");
+      navigate("/dashboard");
     } catch (error) {
       console.error(error);
     }
