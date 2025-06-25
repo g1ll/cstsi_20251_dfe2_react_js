@@ -13,12 +13,12 @@ const ACCESS_TOKEN = md5(SECRET+navigator.userAgent);
 axiosClient.interceptors.request.use(async (config) => {
     const token = localStorage.getDecryptedItem(ACCESS_TOKEN)
     if (token){
-        // config.headers.Authorization = `Bearer ${token}`;
+        config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
 });
 
-const verifyUser = async () => {
+const  verifyUser = async () => {
     try {
         const { data } = await axiosClient.get('/user')
         if (!data) throw new Error("Erro ao recuperar usuário!");7
@@ -72,7 +72,9 @@ export const AuthProvider = ({ children }) => {
 
     const verifyLogin = async () => {
         try {
-            await verifyUser()
+            const {token} = await verifyUser()
+            console.log(token)
+            setToken(token)
             return true;
         } catch (error) {
             setToken(null)
@@ -87,14 +89,6 @@ export const AuthProvider = ({ children }) => {
         setUser(null)
         setToken(null)
     }
-
-    useEffect(() => {
-        token && verifyUser()
-            .then(user => {
-                setUser(user)
-            })
-            .catch(console.error)
-    }, [token]);
 
     return (
         <AuthContext.Provider value={{
