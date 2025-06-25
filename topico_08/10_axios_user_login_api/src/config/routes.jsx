@@ -11,8 +11,7 @@ import Cadastro from "../pages/Cadastro/Cadastro";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import Users from "../pages/Users/Users";
 import Logout from "../pages/Logout/Logout";
-import {Private} from "../layouts/Dash";
-import Dash from "../layouts/Dash";
+import DashLayout, {Private} from "../layouts/DashLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +21,7 @@ const router = createBrowserRouter(
         <Route path="/produto/:id" element={<Show />} />
         <Route path="/login" element={<Login />} />
       </Route>
-      <Route path="/" element={<Private><Dash /></Private>}>
+      <Route path="/" element={<Private><DashLayout /></Private>}>
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/users" element={<Users />} />
         <Route path="/cadastro" element={<Cadastro />} />

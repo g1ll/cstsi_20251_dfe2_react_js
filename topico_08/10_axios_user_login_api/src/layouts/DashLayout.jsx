@@ -17,7 +17,7 @@ export function Private({children}){
   return children;
 }
 
-export default function Dash() {
+export default function DashLayout() {
   const { user } = useAuthContext();
  const navigate = useNavigate();
   // if (!token) navigate("/login");
