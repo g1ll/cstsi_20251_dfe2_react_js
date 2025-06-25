@@ -19,7 +19,7 @@ export default function Dash() {
     intervalLogin.current = setInterval(async ()=>{
       console.log("Verificando login...");  
        verifyLogin().then( isLogged => !isLogged && navigate("/login"));
-    },100000)
+    },5000)
     return () => {
       clearInterval(intervalLogin.current);
     }
