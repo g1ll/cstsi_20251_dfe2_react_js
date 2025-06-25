@@ -4,7 +4,7 @@ import { createContext, useState, useContext, useEffect } from "react"
 import axiosClient from "../utils/axios-client";
 
 const CURRENT_USER = window.crypto.randomUUID();
-const SECRET = { key: null, iv: null }
+const SECRET = { key: import.meta.env.VITE_SECRET, iv: null }
 window.crypto.subtle.generateKey(
     {
         name: "AES-GCM",
@@ -89,6 +89,7 @@ export const AuthProvider = ({ children }) => {
             const decryptedToken = await decryptText(token);
             console.log("decrypt:", { decryptedToken })
             const plainTextToken = new TextDecoder().decode(decryptedToken)
+            console.log('token descriptografado:',plainTextToken)
             if (plainTextToken) config.headers.Authorization = `Bearer ${plainTextToken}`;
         }
         return config;
